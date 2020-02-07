@@ -56,6 +56,8 @@ map <C-n> :cnext<CR>
 map <C-p> :cprevious<CR>
 " クイックフィクスリスト閉じる
 nnoremap <leader>a :cclose<CR>
+"####C++のビルド####
+nnoremap <leader>r :<C-u>!g++ %:p -o %:r; ./%:r<CR>
 
 " #####vim-gitgutterの設定#####
 let g:gitgutter_max_signs = 1
