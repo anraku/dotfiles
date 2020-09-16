@@ -1,84 +1,83 @@
 {
-    "diffEditor.ignoreTrimWhitespace": false,
-    "workbench.sideBar.location": "left",
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "editor.tabSize": 2,
-    "editor.renderControlCharacters": true,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "window.zoomLevel": -1,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "terminal.integrated.rendererType": "dom",
-    "eslint.enable": true,
-    "eslint.options": {
-        "configFile": ".eslintrc.js"
-    },
-    "eslint.validate": [
-        { "language": "javascript", "autoFix": true },
-        { "language": "typescript", "autoFix": true },
-        { "language": "typescriptreact", "autoFix": true },
-        { "language": "react", "autoFix": true },
-        { "language": "vue", "autoFix": true }
-    ],
-    "eslint.autoFixOnSave": true,
-    "files.associations": {
-        "*.py": "python"
-    },
-    "workbench.editor.enablePreview": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.sideBar.location": "left",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "editor.renderControlCharacters": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "window.zoomLevel": 0,
+  "terminal.integrated.rendererType": "dom",
+  "workbench.editor.enablePreview": false,
 
-    // goのバージョンを変えたらこっちも変える
-    "go.gopath": "/Users/anraku/go/1.13.4",
-    "go.useLanguageServer": true,
-    "go.alternateTools": {
-        "go-langserver": "gopls"
-    },
-    "go.languageServerExperimentalFeatures": {
-        "format": true,
-        "autoComplete": true,
-        "rename": true,
-        "goToDefinition": true,
-        "hover": true,
-        "signatureHelp": true,
-        "goToTypeDefinition": true,
-        "goToImplementation": true,
-        "documentSymbols": true,
-        "workspaceSymbols": true,
-        "findReferences": true,
-        "diagnostics": true
-    },
-    "[go]": {
-        "editor.tabSize": 2,
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        },
-    },
-    // "gopls": {
-    //     "usePlaceholders": false,
-    //     // "enhancedHover": false
-    // },
-    // 重いから下5行をコメントアウト
-    // "go.lintTool": "golint",
-    // "go.lintOnSave": "package",
-    // "go.vetOnSave": "package",
-    // "go.buildOnSave": "package",
-    // "go.testOnSave": true,
-    "go.installDependenciesWhenBuilding": true,
+  ////////////////////////////////////
+  // Golang
+  ////////////////////////////////////
+  "go.gopath": "/Users/daimori/go/1.14.4",
+  "go.goroot": "/Users/daimori/.anyenv/envs/goenv/versions/1.14.4",
+  "go.useLanguageServer": true,
+  "go.alternateTools": {
+    "go-langserver": "gopls"
+  },
+  "go.languageServerExperimentalFeatures": {
+    "format": true,
+    "autoComplete": true,
+    "rename": true,
+    "goToDefinition": true,
+    "hover": true,
+    "signatureHelp": true,
+    "goToTypeDefinition": true,
+    "goToImplementation": true,
+    "documentSymbols": true,
+    "workspaceSymbols": true,
+    "findReferences": true,
+    "diagnostics": true
+  },
+  "[go]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    }
+  },
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": ["--fast"],
+  "go.installDependenciesWhenBuilding": true,
 
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.startupEditor": "newUntitledFile",
-    "vsicons.dontShowNewVersionMessage": true,
-    // 諸々のctrlキーを使った操作が有効になる
-    "vim.useCtrlKeys": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["<C-c>"],
-            "after": ["<Esc>"]
-        }
-    ],
-    // システムのclipboardにコピー
-    "vim.useSystemClipboard": true,
-    // 合致した文字列を全てハイライト
-    "vim.hlsearch": true,
-    "editor.formatOnType": true,
+  ////////////////////////////////////
+  // JavaScript, TypeScript
+  ////////////////////////////////////
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  ////////////////////////////////////
+  // Eslint
+  ////////////////////////////////////
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "workbench.startupEditor": "newUntitledFile",
+  "vsicons.dontShowNewVersionMessage": true,
+  // 諸々のctrlキーを使った操作が有効になる
+  "vim.useCtrlKeys": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["<C-c>"],
+      "after": ["<Esc>"]
+    }
+  ],
+  // システムのclipboardにコピー
+  "vim.useSystemClipboard": true,
+  // 合致した文字列を全てハイライト
+  "vim.hlsearch": true,
+  "vim.easymotion": true,
+  "extensions.ignoreRecommendations": false,
+  "C_Cpp.updateChannel": "Insiders",
+  "files.associations": {},
+  "workbench.colorTheme": "Visual Studio 2019 Dark",
+  "gitlens.advanced.blame.customArguments": [],
+  "gitlens.autolinks": [],
+  "editor.tabSize": 2,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
