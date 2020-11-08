@@ -1,0 +1,71 @@
+"##### leader #####
+" leaderをSpaceキーにする
+let mapleader = "\<Space>"
+
+"##### Keymap Setting #####
+nnoremap <C-j> 5j
+vnoremap <C-j> 5j
+nnoremap <C-k> 5k
+vnoremap <C-k> 5k
+nnoremap <C-h> 5h
+vnoremap <C-h> 5h
+nnoremap <C-l> 5l
+vnoremap <C-l> 5l
+
+" Ctrl-sで保存
+inoremap <C-s> <Esc>:w<CR>
+nnoremap <C-s> <Esc>:w<CR>
+
+"##### display #####
+set number "行番号を表示する
+set title "編集中のファイル名を表示
+set showmatch "括弧入力時の対応する括弧を表示
+syntax on "コードの色分け
+set tabstop=2 "インデントをスペース2つ分に設定
+set shiftwidth=2  " 自動インデントでずれる幅
+set smartindent "オートインデント
+
+"##### text #####
+set autowrite
+set encoding=UTF-8
+set guifont=DroidSansMono_Nerd_Font:h11
+" copy & paste
+set clipboard+=unnamed
+
+"##### NERDTree #####
+nnoremap <leader>o :NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
+let g:NERDTreeShowBookmarks=1
+nnoremap <Tab> <C-w>w
+" ファイル指定せずvimを起動したらNERDTreeを表示する
+" ファイル指定して起動した場合はNERDTreeを表示しない
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"##### key bind #####
+"" インサートモードの時に C-j でノーマルモードに戻る
+imap <C-j> <esc>
+" クイックフィクスリストの次の要素に移動する
+map <C-n> :cnext<CR>
+" クイックフィクスリストの前の要素に移動する
+map <C-p> :cprevious<CR>
+" クイックフィクスリスト閉じる
+nnoremap <leader>a :cclose<CR>
+"####C++のビルド####
+nnoremap <leader>r :<C-u>!g++ %:p -o %:r; ./%:r<CR>
+
+"#####コメントアウト設定#####
+nmap <C-K> <Plug>(caw:hatpos:toggle)
+vmap <C-K> <Plug>(caw:hatpos:toggle)
+
+"##### search #####
+set ignorecase "大文字/小文字の区別なく検索する
+set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
+set wrapscan "検索時に最後まで行ったら最初に戻る
+
+"##### mouse #####
+set mouse=a
+
+"##### color #####
+colorscheme gruvbox

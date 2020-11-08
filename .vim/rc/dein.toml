@@ -1,0 +1,22 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'preservim/nerdtree'
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+hook_source= '''
+g:gruvbox_contrast = 'hard'
+'''
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
