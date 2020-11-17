@@ -1,3 +1,7 @@
+##############################
+# Vim
+##############################
+
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -12,11 +16,49 @@ repo = 'airblade/vim-gitgutter'
 repo = 'preservim/nerdtree'
 
 [[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+##############################
+# LSP
+##############################
+[[plugins]]
 repo = 'morhetz/gruvbox'
-hook_source= '''
-g:gruvbox_contrast = 'hard'
+hook_add = '''
+let g:gruvbox_contrast_dark = 'medium'
 '''
 
+
+##############################
+# LSP
+##############################
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'thomasfaingnaert/vim-lsp-snippets'
+
+[[plugins]]
+repo = 'thomasfaingnaert/vim-lsp-ultisnips'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
+
 
