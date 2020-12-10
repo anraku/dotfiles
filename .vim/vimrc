@@ -12,9 +12,32 @@ vnoremap <C-h> 5h
 nnoremap <C-l> 5l
 vnoremap <C-l> 5l
 
+"" インサートモードの時に C-j でノーマルモードに戻る
+imap <C-j> <esc>
+" クイックフィクスリストの次の要素に移動する
+map <C-n> :cnext<CR>
+" クイックフィクスリストの前の要素に移動する
+map <C-p> :cprevious<CR>
+" クイックフィクスリスト閉じる
+nnoremap <leader>a :cclose<CR>
+"ESCを二回押すことでハイライトを消す
+noremap <silent> <Esc><Esc> :nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+
 " Ctrl-sで保存
-inoremap <C-s> <Esc>:w<CR>
+noremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> <Esc>:w<CR>
+
+" 貼り付けたテキストの末尾に自動的に移動する
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+noremap <S-h> ^
+noremap <S-l> $
+
+nnoremap <Leader>n :vsp newfile<CR>
+nnoremap <Space>v  :vs<CR>:<C-u>VimShell<CR>
 
 "##### display #####
 set number "行番号を表示する
@@ -25,12 +48,14 @@ set tabstop=2 "インデントをスペース2つ分に設定
 set shiftwidth=2  " 自動インデントでずれる幅
 set smartindent "オートインデント
 
+
 "##### text #####
 set autowrite
 set encoding=UTF-8
 set guifont=DroidSansMono_Nerd_Font:h11
 " copy & paste
 set clipboard+=unnamed
+
 
 "##### NERDTree #####
 nnoremap <leader>o :NERDTreeToggle<CR>
@@ -43,30 +68,15 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"##### key bind #####
-"" インサートモードの時に C-j でノーマルモードに戻る
-imap <C-j> <esc>
-" クイックフィクスリストの次の要素に移動する
-map <C-n> :cnext<CR>
-" クイックフィクスリストの前の要素に移動する
-map <C-p> :cprevious<CR>
-" クイックフィクスリスト閉じる
-nnoremap <leader>a :cclose<CR>
-
-"#####コメントアウト設定#####
-nmap <C-K> <Plug>(caw:hatpos:toggle)
-vmap <C-K> <Plug>(caw:hatpos:toggle)
 
 "##### search #####
 set ignorecase "大文字/小文字の区別なく検索する
 set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
 set wrapscan "検索時に最後まで行ったら最初に戻る
 
+
 "##### mouse #####
 set mouse=a
-
-"##### color #####
-colorscheme gruvbox
 
 
 "##### For LSP settings #####
@@ -74,6 +84,8 @@ function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
   nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs :sp<CR> <plug>(lsp-definition)
+  nmap <buffer> gv :vsp<CR> <plug>(lsp-definition)
 	nmap <buffer> gr <plug>(lsp-references)
 	nmap <buffer> gi <plug>(lsp-implementation)
   nmap <buffer> gt <plug>(lsp-type-definition)
@@ -92,11 +104,12 @@ let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 " let g:asyncomplete_auto_popup = 1
 " let g:asyncomplete_auto_completeopt = 0
-let g:asyncomplete_popup_delay = 200
+let g:asyncomplete_popup_delay = 10
 let g:lsp_text_edit_enabled = 1
 let g:lsp_preview_float = 1
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
+let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-language-server']
 
 let g:lsp_settings = {}
 let g:lsp_settings['gopls'] = {
@@ -113,3 +126,18 @@ let g:lsp_settings['gopls'] = {
   \    },
   \  },
   \}
+
+
+"##### color #####
+autocmd ColorScheme * highlight Error    ctermfg=167 ctermbg=237 guifg=#fb4934 guibg=#3c3836
+autocmd ColorScheme * highlight ErrorMsg ctermfg=167 ctermbg=237 guifg=#fb4934 guibg=#3c3836
+autocmd ColorScheme * highlight LspErrorText ctermfg=167 ctermbg=237 guifg=#fb4934 guibg=#3c3836
+highlight link LspErrorHighlight NONE
+
+hi ErrorMsg ctermbg=Cyan
+hi ErrorMsg ctermfg=White
+hi Error ctermbg=Cyan
+hi Error ctermfg=White
+colorscheme gruvbox
+set termguicolors
+
