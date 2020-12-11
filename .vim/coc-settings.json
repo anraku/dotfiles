@@ -1,0 +1,6 @@
+{
+	"prettier.eslintIntegration": true,
+	"eslint.autoFixOnSave":true,
+	"eslint.autoFix": true,
+	"coc.preferences.formatOnSaveFiletypes": ["typescript"]
+}

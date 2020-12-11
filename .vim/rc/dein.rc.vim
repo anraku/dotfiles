@@ -30,6 +30,7 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
+" 新しく入れたプラグインがあれば、vim起動時に自動でインストールする
 if dein#check_install()
   call dein#install()
 endif
