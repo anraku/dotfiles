@@ -34,10 +34,35 @@ alias doc='docker-compose'
 
 alias gs='git status'
 alias gb='git  branch'
+alias ga='git add -p'
+alias gc='git commit'
 alias gore='gore -autoimport'
-
-# stats covid-19
-alias cov='curl https://corona-stats.online/Japan'
 
 # neovim setting
 export XDG_CONFIG_HOME=$HOME/.config
+
+# fzf setting
+alias f='fzf --preview "bat --style=numbers --color=always --line-range :500 {}"'
+
+# peco setting
+alias pcd='cd $(find . -maxdepth 1 -type d | peco)'
+
+
+# 初回起動時にtmuxを起動
+if [[ ! -n $TMUX ]]; then
+  # get the IDs
+  ID="`tmux list-sessions`"
+  if [[ -z "$ID" ]]; then
+    tmux new-session
+  fi
+  create_new_session="Create New Session"
+  ID="$ID\n${create_new_session}:"
+  ID="`echo $ID | fzf | cut -d: -f1`"
+  if [[ "$ID" = "${create_new_session}" ]]; then
+    tmux new-session
+  elif [[ -n "$ID" ]]; then
+    tmux attach-session -t "$ID"
+  else
+    :  # Start terminal normally
+  fi
+fi
