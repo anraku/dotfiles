@@ -132,6 +132,7 @@ let g:lsp_settings['gopls'] = {
 autocmd ColorScheme * highlight Error    ctermfg=167 ctermbg=237 guifg=#fb4934 guibg=#3c3836
 autocmd ColorScheme * highlight ErrorMsg ctermfg=167 ctermbg=237 guifg=#fb4934 guibg=#3c3836
 autocmd ColorScheme * highlight LspErrorText ctermfg=167 ctermbg=237 guifg=#fb4934 guibg=#3c3836
+autocmd ColorScheme * highlight LspWarningText ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
 highlight link LspErrorHighlight NONE
 
 hi ErrorMsg ctermbg=Cyan
