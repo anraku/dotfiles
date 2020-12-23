@@ -23,6 +23,21 @@ on_if = '!has("nvim")'
 repo = 'roxma/vim-hug-neovim-rpc'
 on_if = '!has("nvim")'
 
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = '''
+    command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
+      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
+'''
+
 ##############################
 # ColorTheme
 ##############################
@@ -67,13 +82,11 @@ repo = 'hrsh7th/vim-vsnip'
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
 
-
-
-[[plugins]]
-repo = "neoclide/coc.nvim"
-merge = 0
-rev = "release"
-hook_add = '''
-source ~/.config/nvim/plugins/coc.rc.vim
-'''
+#[[plugins]]
+#repo = "neoclide/coc.nvim"
+#merge = 0
+#rev = "release"
+#hook_add = '''
+#source ~/.config/nvim/plugins/coc.rc.vim
+#'''
 
