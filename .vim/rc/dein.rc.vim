@@ -14,6 +14,7 @@ endif
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
+  call dein#add(s:dein_repo_dir)
 
   let s:toml      = '~/.vim/rc/dein.toml'
   let s:lazy_toml = '~/.vim/rc/dein_lazy.toml'
@@ -21,10 +22,6 @@ if dein#load_state(s:dein_dir)
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
   call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
 
   call dein#end()
   call dein#save_state()

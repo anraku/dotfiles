@@ -11,6 +11,17 @@ nnoremap <C-h> 5h
 vnoremap <C-h> 5h
 nnoremap <C-l> 5l
 vnoremap <C-l> 5l
+nnoremap <S-h> ^
+vnoremap <S-h> ^
+nnoremap <S-l> $
+vnoremap <S-l> $
+
+" windowの移動
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <Tab> <C-w>w
 
 "" インサートモードの時に C-j でノーマルモードに戻る
 imap <C-j> <esc>
@@ -33,11 +44,11 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-noremap <S-h> ^
-noremap <S-l> $
-
 nnoremap <Leader>n :vsp newfile<CR>
-nnoremap <Space>v  :vs<CR>:<C-u>VimShell<CR>
+
+nnoremap <leader>/ :TComment<CR>
+vnoremap <leader>/ :TComment<CR>
+
 
 "##### display #####
 set number "行番号を表示する
@@ -55,18 +66,6 @@ set encoding=UTF-8
 set guifont=DroidSansMono_Nerd_Font:h11
 " copy & paste
 set clipboard+=unnamed
-
-
-"##### NERDTree #####
-nnoremap <leader>o :NERDTreeToggle<CR>
-let NERDTreeShowHidden = 1
-let g:NERDTreeShowBookmarks=1
-nnoremap <Tab> <C-w>w
-" ファイル指定せずvimを起動したらNERDTreeを表示する
-" ファイル指定して起動した場合はNERDTreeを表示しない
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 "##### search #####

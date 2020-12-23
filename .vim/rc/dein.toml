@@ -1,10 +1,6 @@
 ##############################
 # Vim
 ##############################
-
-[[plugins]]
-repo = 'Shougo/dein.vim'
-
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
@@ -13,13 +9,19 @@ build = 'make'
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'preservim/nerdtree'
-
-[[plugins]]
 repo = 'tomtom/tcomment_vim'
 
+# カッコを入力した時に閉じる方も入力してくれるプラグイン
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+on_if = '!has("nvim")'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+on_if = '!has("nvim")'
 
 ##############################
 # ColorTheme
@@ -30,7 +32,6 @@ repo = 'morhetz/gruvbox'
 hook_add = '''
 let g:gruvbox_contrast_dark = 'medium'
 '''
-
 
 ##############################
 # LSP
@@ -72,6 +73,7 @@ repo = 'hrsh7th/vim-vsnip-integ'
 repo = "neoclide/coc.nvim"
 merge = 0
 rev = "release"
-hook_add = """
+hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
-"""
+'''
+
