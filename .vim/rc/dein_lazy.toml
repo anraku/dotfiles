@@ -52,8 +52,8 @@ let g:go_highlight_variable_assignments = 1
 # Godot
 ##############################
 repo = 'habamax/vim-godot'
-on_ft = 'gd'
-hoo_source = '''
+on_ft = 'gdscript'
+hook_source = '''
 func! GodotSettings() abort
     setlocal foldmethod=expr
     setlocal tabstop=4
@@ -77,9 +77,10 @@ depends = ['defx-git', 'defx-icons']
 on_if = '!has("nvim")'
 hook_add = '''
 autocmd VimEnter * execute 'Defx'
-nnoremap <silent> <Leader>o :<C-u> Defx <CR>
 '''
 hook_source = '''
+nnoremap <silent> <leader>o :Defx <CR>
+
 call defx#custom#option('_', {
       \ 'winwidth': 40,
       \ 'split': 'vertical',
