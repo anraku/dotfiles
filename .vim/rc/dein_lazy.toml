@@ -20,12 +20,15 @@ on_ft = '[tsx]'
 ##############################
 # Golang
 ##############################
+[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_source = '''
-autocmd FileType go nmap <leader>t <Plug>(go-test)
-autocmd FileType go nmap <leader>r <Plug>(go-run)
-autocmd FileType go nmap <leader>b <Plug>(go-build)
+augroup go
+	autocmd FileType go nmap <leader>t <Plug>(go-test)
+	autocmd FileType go nmap <leader>r <Plug>(go-run)
+	autocmd FileType go nmap <leader>b <Plug>(go-build)
+augroup END
 
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
@@ -51,6 +54,7 @@ let g:go_highlight_variable_assignments = 1
 ##############################
 # Godot
 ##############################
+[[plugins]]
 repo = 'habamax/vim-godot'
 on_ft = 'gdscript'
 hook_source = '''
