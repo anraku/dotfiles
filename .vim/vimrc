@@ -49,6 +49,10 @@ nnoremap <Leader>n :vsp newfile<CR>
 nnoremap <leader>/ :TComment<CR>
 vnoremap <leader>/ :TComment<CR>
 
+" ファイル検索
+nnoremap <leader>f :FZF<CR>
+" ディレクトリ内を曖昧検索
+nnoremap <leader>p :Rg<CR>
 
 "##### display #####
 set number "行番号を表示する
